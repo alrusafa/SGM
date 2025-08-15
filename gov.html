@@ -169,14 +169,19 @@
     }
     
     .gov-tag {
-      background: var(--primary);
-      color: white;
+   background: var(--accent);
+      color: var(--dark);
       padding: 2px 8px;
       border-radius: 4px;
       font-size: 0.8rem;
       margin-right: 8px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+
+}
     }
+    
     
     .logout-btn {
       background: rgba(255, 255, 255, 0.1);
@@ -200,6 +205,7 @@
     .logout-btn i {
       font-size: 0.9rem;
     }
+
     
     .dashboard {
       flex: 1;
@@ -494,6 +500,197 @@
       margin-top: 20px;
     }
     
+    /* أنماط جديدة لعرض الأسواق */
+    .markets-container {
+      padding: 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    
+    .market-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid #eaeaea;
+    }
+    
+    .market-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    
+    .market-header {
+      background: var(--secondary);
+      color: white;
+      padding: 25px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .market-icon {
+      font-size: 2.5rem;
+      width: 70px;
+      height: 70px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .market-name {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    
+    .market-location {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+    
+    .market-content {
+      padding: 25px;
+    }
+    
+    .market-description {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    
+    .market-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    
+    .product-tag {
+      background: #f0f5ff;
+      color: var(--primary);
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #d0deff;
+    }
+    
+    /* أنماط من ملف market.html */
+    .market-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #f1c40f);
+      z-index: 2;
+    }
+    
+    .market-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(30deg);
+    }
+    
+    .market-card:hover .market-icon {
+      transform: scale(1.1);
+    }
+    
+    .market-location i {
+      font-size: 0.8rem;
+    }
+    
+    .product-tag:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .btn-visit {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      font-size: 1.1rem;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      font-weight: bold;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, var(--accent), #f1c40f);
+      color: var(--dark);
+      box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+    }
+    
+    .btn-visit:hover {
+      background: linear-gradient(90deg, #c99d1d, #e6b800);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+    }
+    
+    .btn-visit:active {
+      transform: translateY(0);
+    }
+    
+    /* تأثيرات للعناوين */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section-title {
+      animation: fadeIn 0.8s ease-out;
+    }
+    
+    .market-card {
+      animation: fadeIn 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+    
+    /* تأخير ظهور البطاقات بشكل متتالي */
+    .market-card:nth-child(1) { animation-delay: 0.1s; }
+    .market-card:nth-child(2) { animation-delay: 0.2s; }
+    .market-card:nth-child(3) { animation-delay: 0.3s; }
+    .market-card:nth-child(4) { animation-delay: 0.4s; }
+    .market-card:nth-child(5) { animation-delay: 0.5s; }
+    .market-card:nth-child(6) { animation-delay: 0.6s; }
+    
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -539,9 +736,18 @@
       .tender-actions {
         flex-wrap: wrap;
       }
+      
+      .markets-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .registration-content {
+        max-width: 95%;
+        height: 85vh;
+      }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -667,29 +873,6 @@
               </button>
             </div>
           </div>
-          
-          <div class="tender-item">
-            <h4 class="tender-title">
-              <span class="tender-type">مناقصة</span>
-              توريد أجهزة قياس ذكية
-            </h4>
-            <div class="tender-meta">
-              <span>رقم: ELEC-2024-003</span>
-              <span>تاريخ النشر: 10/06/2024</span>
-              <span>آخر موعد: 25/06/2024</span>
-              <span>الميزانية: 120,000,000 دينار</span>
-              <span>الحالة: <span style="color: green;">مفتوحة</span></span>
-            </div>
-            <p>توريد أجهزة قياس ذكية لتحسين نظام الفواتير ومراقبة الاستهلاك</p>
-            <div class="tender-actions">
-              <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.9rem;">تعديل</button>
-              <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.9rem;">العروض المقدمة (2)</button>
-              <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.9rem;">إغلاق المناقصة</button>
-              <button class="btn btn-danger delete-tender-btn" style="padding: 5px 10px; font-size: 0.9rem;">
-                <i class="fas fa-trash"></i> حذف
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -809,7 +992,7 @@
 
   <!-- نافذة الأسواق التجارية -->
   <div id="shopsModal" class="registration-modal">
-    <div class="registration-content">
+    <div class="registration-content" style="max-width: 95%;">
       <span class="close-btn">&times;</span>
       
       <div class="markets-container">
@@ -824,7 +1007,7 @@
               </div>
               <div>
                 <div class="market-name">سوق شارع الصناعة</div>
-                <div class="market-location">بغداد - الكرادة الشرقية</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - الكرادة الشرقية</div>
               </div>
             </div>
             <div class="market-content">
@@ -841,7 +1024,7 @@
                 <span class="product-tag">أنظمة حماية</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
           
@@ -853,7 +1036,7 @@
               </div>
               <div>
                 <div class="market-name">سوق عكد النصارى</div>
-                <div class="market-location">بغداد - منطقة الكرادة</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - منطقة الكرادة</div>
               </div>
             </div>
             <div class="market-content">
@@ -870,7 +1053,7 @@
                 <span class="product-tag">ألواح إنارة</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
           
@@ -882,7 +1065,7 @@
               </div>
               <div>
                 <div class="market-name">سوق الشورجة</div>
-                <div class="market-location">بغداد - الرصافة</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - الرصافة</div>
               </div>
             </div>
             <div class="market-content">
@@ -899,7 +1082,7 @@
                 <span class="product-tag">أثاث فندقي</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
           
@@ -911,7 +1094,7 @@
               </div>
               <div>
                 <div class="market-name">سوق السراي</div>
-                <div class="market-location">بغداد - الميدان</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - الميدان</div>
               </div>
             </div>
             <div class="market-content">
@@ -928,7 +1111,7 @@
                 <span class="product-tag">مستلزمات تعليم</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
           
@@ -940,7 +1123,7 @@
               </div>
               <div>
                 <div class="market-name">سوق الغزل</div>
-                <div class="market-location">بغداد - الباب الشرقي</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - الباب الشرقي</div>
               </div>
             </div>
             <div class="market-content">
@@ -957,7 +1140,7 @@
                 <span class="product-tag">أنظمة ري</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
           
@@ -969,7 +1152,7 @@
               </div>
               <div>
                 <div class="market-name">سوق شارع السنك</div>
-                <div class="market-location">بغداد - الرصافة</div>
+                <div class="market-location"><i class="fas fa-map-marker-alt"></i> بغداد - الرصافة</div>
               </div>
             </div>
             <div class="market-content">
@@ -986,7 +1169,7 @@
                 <span class="product-tag">منسوجات</span>
               </div>
               
-              <button class="btn btn-primary">زيارة السوق</button>
+              <button class="btn-visit">زيارة السوق</button>
             </div>
           </div>
         </div>
@@ -1026,6 +1209,7 @@
     const confirmationModal = document.getElementById('confirmationModal');
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
     const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+    const visitButtons = document.querySelectorAll('.btn-visit');
     
     let currentTenderToDelete = null;
 
@@ -1058,6 +1242,9 @@
       
       // إعداد أزرار الحذف
       setupDeleteButtons();
+      
+      // إعداد أزرار زيارة السوق
+      setupVisitButtons();
     });
     
     // إعداد أزرار الحذف
@@ -1067,6 +1254,15 @@
           e.stopPropagation();
           currentTenderToDelete = this.closest('.tender-item');
           confirmationModal.style.display = 'block';
+        });
+      });
+    }
+    
+    // إعداد أزرار زيارة السوق
+    function setupVisitButtons() {
+      visitButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          alert('سيتم توجيهك إلى صفحة السوق قريبًا!');
         });
       });
     }
@@ -1143,8 +1339,6 @@
       alert('تم نشر المناقصة بنجاح! سيتم مراجعتها قبل النشر النهائي.');
       this.reset();
       tenderModal.style.display = 'none';
-      
-      // هنا يمكنك إضافة الكود لإضافة المناقصة الجديدة إلى القائمة
     });
     
     // إرسال نموذج نشر مزايدة
@@ -1153,15 +1347,6 @@
       alert('تم نشر المزايدة بنجاح! سيتم مراجعتها قبل النشر النهائي.');
       this.reset();
       auctionModal.style.display = 'none';
-      
-      // هنا يمكنك إضافة الكود لإضافة المزايدة الجديدة إلى القائمة
-    });
-    
-    // تفاعل أزرار زيارة السوق
-    document.querySelectorAll('.market-card .btn-primary').forEach(btn => {
-      btn.addEventListener('click', function() {
-        alert('سيتم توجيهك إلى صفحة السوق قريبًا!');
-      });
     });
     
     // وظيفة البحث
