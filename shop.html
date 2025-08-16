@@ -14,6 +14,11 @@
       --text: #333;
       --gray: #6c757d;
       --success: #28a745;
+      --facebook-blue: #1877f2;
+      --facebook-bg: #f0f2f5;
+      --facebook-post-bg: #ffffff;
+      --facebook-border: #dddfe2;
+      --notification-badge: #ff4757;
     }
     
     * {
@@ -473,76 +478,446 @@
       margin-top: 30px;
     }
     
-    .tenders-list {
+    /* أنماط سوق شارع الصناعة - النسخة المعدلة */
+    .market-container {
+      padding: 20px;
+      background-color: var(--facebook-bg);
+      min-height: 100vh;
+    }
+    
+    .market-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .market-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .market-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+    
+    .market-layout {
+      display: flex;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .market-sidebar {
+      width: 300px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+    }
+    
+    .market-main {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .market-rightbar {
+      width: 300px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+    }
+    
+    /* المنشورات */
+    .post {
+      background: var(--facebook-post-bg);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--facebook-border);
+    }
+    
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .post-user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .post-user {
+      flex: 1;
+    }
+    
+    .post-user-name {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .post-shop-name {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    .post-time {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    .post-options {
+      color: var(--gray);
+      cursor: pointer;
+    }
+    
+    .post-content {
+      margin-bottom: 15px;
+    }
+    
+    .post-text {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .post-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      max-height: 500px;
+      object-fit: cover;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+    }
+    
+    .post-price {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .post-actions-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid var(--facebook-border);
+    }
+    
+    .post-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all 0.2s;
+    }
+    
+    .post-action-btn:hover {
+      background: var(--facebook-bg);
+    }
+    
+    .post-action-btn i {
+      font-size: 1.1rem;
+    }
+    
+    /* الشريط الجانبي */
+    .sidebar-card {
+      background: var(--facebook-post-bg);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--facebook-border);
+    }
+    
+    .sidebar-title {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--facebook-border);
+    }
+    
+    /* المتاجر */
+    .shop-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    
+    .shop-item:not(:last-child) {
+      border-bottom: 1px solid var(--facebook-border);
+    }
+    
+    .shop-item-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .shop-item-name {
+      font-weight: 500;
+    }
+    
+    .shop-item-category {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    /* الإعلانات الممولة */
+    .sponsored-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    
+    .sponsored-image {
+      width: 100px;
+      height: 80px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+    }
+    
+    .sponsored-text {
+      flex: 1;
+    }
+    
+    .sponsored-label {
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-bottom: 3px;
+    }
+    
+    .sponsored-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .sponsored-desc {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    /* شريط البحث */
+    .market-search {
+      background: var(--facebook-post-bg);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--facebook-border);
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--facebook-border);
+      border-radius: 20px;
+      font-family: 'Tajawal', sans-serif;
+    }
+    
+    /* أنماط البريد الوارد */
+    .inbox-container {
       background: white;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 20px;
-      margin-top: 30px;
+      margin-bottom: 30px;
     }
     
-    .tenders-title {
+    .inbox-title {
       color: var(--primary);
       margin-bottom: 20px;
       font-size: 1.3rem;
     }
     
-    .tender-item {
-      padding: 15px 0;
+    .inbox-tabs {
+      display: flex;
       border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
     }
     
-    .tender-item:last-child {
-      border-bottom: none;
+    .inbox-tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
     }
     
-    .tender-title {
-      color: var(--primary);
-      margin-bottom: 5px;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    .tender-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 15px;
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 5px;
-    }
-    
-    .tender-type {
-      color: var(--accent);
+    .inbox-tab.active {
+      border-bottom-color: var(--accent);
       font-weight: bold;
     }
     
-    .tender-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
+    .message-list {
+      max-height: 500px;
+      overflow-y: auto;
     }
     
-    .tenders-modal-content {
+    .message-item {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .message-item:hover {
+      background: #f9f9f9;
+    }
+    
+    .message-item.unread {
+      background: #f0f8ff;
+    }
+    
+    .message-sender {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    .message-preview {
+      color: var(--gray);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .message-time {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 5px;
+    }
+    
+    .message-content {
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    
+    .message-reply {
+      margin-top: 20px;
+    }
+    
+    .message-reply textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Tajawal', sans-serif;
+      margin-bottom: 10px;
+    }
+    
+    /* أنماط الإشعارات */
+    .notifications-container {
       background: white;
-      margin: 50px auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      max-width: 900px;
-      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 30px;
     }
     
-    .tenders-modal-content .search-bar {
+    .notifications-title {
+      color: var(--primary);
       margin-bottom: 20px;
-      box-shadow: none;
+      font-size: 1.3rem;
     }
     
-    .tenders-modal-content .tenders-list {
-      box-shadow: none;
-      padding: 0;
-      margin-top: 0;
+    .notification-item {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      gap: 15px;
+    }
+    
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    
+    .notification-content {
+      flex: 1;
+    }
+    
+    .notification-text {
+      margin-bottom: 5px;
+    }
+    
+    .notification-time {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    .notification-badge {
+      background: var(--notification-badge);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      margin-left: 10px;
+    }
+    
+    /* تحسينات للجوال */
+    @media (max-width: 1200px) {
+      .market-rightbar {
+        display: none;
+      }
+      
+      .market-sidebar {
+        width: 250px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .market-layout {
+        flex-direction: column;
+      }
+      
+      .market-sidebar {
+        width: 100%;
+        position: static;
+      }
     }
     
     @media (max-width: 768px) {
@@ -591,6 +966,15 @@
         padding: 20px;
         margin: 20px auto;
       }
+      
+      .post-actions-bar {
+        justify-content: space-between;
+      }
+      
+      .inbox-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
@@ -624,10 +1008,22 @@
             <button class="btn btn-primary" id="uploadBtn">تحميل</button>
           </div>
         </div>
-        <button class="logout-btn" id="logoutBtn">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>تسجيل الخروج</span>
-        </button>
+        <div style="display: flex; gap: 10px;">
+          <button class="logout-btn" id="inboxBtn" style="position: relative;">
+            <i class="fas fa-envelope"></i>
+            <span>البريد</span>
+            <span class="notification-badge" id="inboxBadge" style="display: none;">3</span>
+          </button>
+          <button class="logout-btn" id="notificationsBtn" style="position: relative;">
+            <i class="fas fa-bell"></i>
+            <span>الإشعارات</span>
+            <span class="notification-badge" id="notificationsBadge">5</span>
+          </button>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -659,9 +1055,9 @@
           <button class="btn btn-primary" id="newProductBtn">إضافة منتج</button>
         </div>
         <div class="card">
-          <h3 class="card-title"><i class="fas fa-file-contract card-icon"></i> العروض المقدمة</h3>
-          <p class="card-content">عرض وتتبع العروض المقدمة للمناقصات والمزايدات الحكومية</p>
-          <button class="btn btn-primary" id="viewOffersBtn">عرض العروض</button>
+          <h3 class="card-title"><i class="fas fa-store card-icon"></i> سوق شارع الصناعة</h3>
+          <p class="card-content">تصفح متاجر وأقسام سوق شارع الصناعة</p>
+          <button class="btn btn-primary" id="viewMarketBtn">زيارة السوق</button>
         </div>
         <div class="card">
           <h3 class="card-title"><i class="fas fa-bullhorn card-icon"></i> المناقصات الحكومية</h3>
@@ -670,8 +1066,90 @@
         </div>
       </div>
       
+      <!-- قسم الإشعارات -->
+      <div class="notifications-container" id="notificationsSection" style="display: none;">
+        <h3 class="notifications-title">الإشعارات</h3>
+        <div class="notification-item">
+          <div class="notification-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-text">قامت وزارة الكهرباء بإبداء الإعجاب بمنتج "حاسوب مكتبي بمواصفات عالية"</div>
+            <div class="notification-time">منذ ساعتين</div>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">
+            <i class="fas fa-comment"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-text">لديك رسالة جديدة من شركة الحلول التقنية</div>
+            <div class="notification-time">منذ 5 ساعات</div>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-text">تمت الموافقة على عرضك للمناقصة رقم EDU-2025-456</div>
+            <div class="notification-time">منذ يوم واحد</div>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">
+            <i class="fas fa-ad"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-text">إعلانك الممول "خصم 20% على أجهزة الحاسوب" حصل على 150 مشاهدة</div>
+            <div class="notification-time">منذ 3 أيام</div>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div class="notification-content">
+            <div class="notification-text">5 متابعين جدد لمحلك في السوق الحكومي</div>
+            <div class="notification-time">منذ أسبوع</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- قسم البريد الوارد -->
+      <div class="inbox-container" id="inboxSection" style="display: none;">
+        <h3 class="inbox-title">البريد الوارد</h3>
+        <div class="inbox-tabs">
+          <div class="inbox-tab active">الكل</div>
+          <div class="inbox-tab">غير المقروء</div>
+          <div class="inbox-tab">الرسائل المهمة</div>
+        </div>
+        <div class="message-list">
+          <div class="message-item unread">
+            <div class="message-sender">وزارة الكهرباء</div>
+            <div class="message-preview">طلب معلومات إضافية عن عرضك للمناقصة رقم ELEC-2024-001...</div>
+            <div class="message-time">منذ ساعتين</div>
+          </div>
+          <div class="message-item unread">
+            <div class="message-sender">شركة الحلول التقنية</div>
+            <div class="message-preview">نرغب في التعاون معكم لتوريد أجهزة حاسوب لمشروع حكومي...</div>
+            <div class="message-time">منذ يوم واحد</div>
+          </div>
+          <div class="message-item">
+            <div class="message-sender">إدارة السوق الحكومي</div>
+            <div class="message-preview">تمت الموافقة على منتجك الجديد "طابعة ليزر متعددة الوظائف"...</div>
+            <div class="message-time">منذ 3 أيام</div>
+          </div>
+          <div class="message-item">
+            <div class="message-sender">أنظمة الشبكات المتكاملة</div>
+            <div class="message-preview">هل لديكم أجهزة راوتر من نوع Cisco في المخزون؟...</div>
+            <div class="message-time">منذ أسبوع</div>
+          </div>
+        </div>
+      </div>
+      
       <!-- قائمة المنتجات -->
-      <div class="products-list">
+      <div class="products-list" id="productsSection">
         <h3 class="products-title">منتجات المحل</h3>
         <div id="productsContainer">
           <div class="product-item">
@@ -791,6 +1269,184 @@
           <button type="submit" class="btn btn-primary">إضافة المنتج</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- نافذة سوق شارع الصناعة - النسخة المعدلة -->
+  <div id="marketModal" class="registration-modal">
+    <div class="registration-content" style="max-width: 95%; padding: 0; background-color: var(--facebook-bg);">
+      <span class="close-btn">&times;</span>
+      
+      <div class="market-container">
+        <div class="market-header">
+          <h2 class="market-title">سوق شارع الصناعة</h2>
+          <p class="market-subtitle">منصة التواصل بين التجار والجهات الحكومية</p>
+        </div>
+        
+        <div class="market-layout">
+          <!-- الشريط الجانبي الأيسر -->
+          <div class="market-sidebar">
+            <div class="market-search">
+              <input type="text" class="search-input" placeholder="ابحث عن منتجات أو متاجر...">
+            </div>
+            
+            <div class="sidebar-card">
+              <div class="sidebar-title">متاجر قد تهمك</div>
+              <div class="shop-item">
+                <div class="shop-item-avatar">ش</div>
+                <div>
+                  <div class="shop-item-name">شركة الحلول التقنية</div>
+                  <div class="shop-item-category">أجهزة حاسوب وملحقات</div>
+                </div>
+              </div>
+              <div class="shop-item">
+                <div class="shop-item-avatar">ن</div>
+                <div>
+                  <div class="shop-item-name">أنظمة الشبكات المتكاملة</div>
+                  <div class="shop-item-category">حلول الشبكات والأمن</div>
+                </div>
+              </div>
+              <div class="shop-item">
+                <div class="shop-item-avatar">ح</div>
+                <div>
+                  <div class="shop-item-name">الحلول المكتبية</div>
+                  <div class="shop-item-category">طابعات وأجهزة تصوير</div>
+                </div>
+              </div>
+              <div class="shop-item">
+                <div class="shop-item-avatar">ب</div>
+                <div>
+                  <div class="shop-item-name">برمجيات العراق</div>
+                  <div class="shop-item-category">حلول برمجية متكاملة</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- المحتوى الرئيسي -->
+          <div class="market-main">
+            <!-- منشور 1 (منتج تمت إضافته تلقائياً) -->
+            <div class="post">
+              <div class="post-header">
+                <div class="post-user-avatar">ت</div>
+                <div class="post-user">
+                  <div class="post-user-name">محل التقنية الحديثة</div>
+                  <div class="post-shop-name">متجر معتمد منذ 2023</div>
+                  <div class="post-time">منذ يوم واحد</div>
+                </div>
+                <div class="post-options">
+                  <i class="fas fa-ellipsis-h"></i>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-text">
+                  لدينا عرض جديد! حاسوب مكتبي بمواصفات عالية مناسب للمؤسسات الحكومية، معالج i7، ذاكرة 16GB، قرص SSD 512GB، شاشة 21.5 بوصة.
+                </div>
+                <div class="post-image">
+                  <i class="fas fa-laptop" style="font-size: 3rem;"></i>
+                </div>
+                <div class="post-price">السعر: 1,250,000 دينار</div>
+              </div>
+              <div class="post-actions-bar">
+                <div class="post-action-btn">
+                  <i class="fas fa-ad"></i>
+                  <span>تمويل المنشور</span>
+                </div>
+                <div class="post-action-btn">
+                  <i class="fas fa-envelope"></i>
+                  <span>مراسلة التاجر</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- إعلان ممول -->
+            <div class="post" style="border: 2px solid var(--accent);">
+              <div class="post-header">
+                <div class="post-user-avatar">إ</div>
+                <div class="post-user">
+                  <div class="post-user-name">إعلان ممول</div>
+                  <div class="post-shop-name">إدارة السوق الحكومي</div>
+                  <div class="post-time">منذ 3 أيام</div>
+                </div>
+                <div class="post-options">
+                  <i class="fas fa-ellipsis-h"></i>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-text">
+                  خصم 20% على جميع أجهزة الحاسوب للمؤسسات الحكومية المسجلة في النظام حتى نهاية الشهر الحالي. استفد من العرض الآن!
+                </div>
+                <div class="post-image">
+                  <i class="fas fa-desktop" style="font-size: 3rem;"></i>
+                </div>
+              </div>
+            </div>
+            
+            <!-- منشور 2 (منتج آخر) -->
+            <div class="post">
+              <div class="post-header">
+                <div class="post-user-avatar">ش</div>
+                <div class="post-user">
+                  <div class="post-user-name">شركة الحلول التقنية</div>
+                  <div class="post-shop-name">متجر معتمد منذ 2020</div>
+                  <div class="post-time">منذ 4 أيام</div>
+                </div>
+                <div class="post-options">
+                  <i class="fas fa-ellipsis-h"></i>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-text">
+                  وصول شحنة جديدة من أجهزة اللابتوب بمواصفات عالية وبأسعار تنافسية للجهات الحكومية. تشمل المواصفات: معالج i7 الجيل العاشر، 16GB RAM، 512GB SSD، شاشة 15.6 بوصة بدقة FHD.
+                </div>
+                <div class="post-image">
+                  <i class="fas fa-laptop" style="font-size: 3rem;"></i>
+                </div>
+                <div class="post-price">السعر: 1,850,000 دينار</div>
+              </div>
+              <div class="post-actions-bar">
+                <div class="post-action-btn">
+                  <i class="fas fa-ad"></i>
+                  <span>تمويل المنشور</span>
+                </div>
+                <div class="post-action-btn">
+                  <i class="fas fa-envelope"></i>
+                  <span>مراسلة التاجر</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- الشريط الجانبي الأيمن -->
+          <div class="market-rightbar">
+            <div class="sidebar-card">
+              <div class="sidebar-title">إعلانات ممولة</div>
+              
+              <div class="sponsored-item">
+                <div class="sponsored-image">
+                  <i class="fas fa-gem" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="sponsored-text">
+                  <div class="sponsored-label">إعلان ممول</div>
+                  <div class="sponsored-name">خصم 20% على البرمجيات الحكومية</div>
+                  <div class="sponsored-desc">عروض حصرية لتجار السوق الحكومي حتى نهاية الشهر</div>
+                </div>
+              </div>
+              
+              <div class="sponsored-item">
+                <div class="sponsored-image">
+                  <i class="fas fa-calendar-alt" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="sponsored-text">
+                  <div class="sponsored-label">إعلان ممول</div>
+                  <div class="sponsored-name">معرض التقنية الحكومية 2025</div>
+                  <div class="sponsored-desc">شارك كعارض واحصل على خصم 30% على الحجز المبكر</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -931,10 +1587,10 @@
   <script>
     // التحكم في النماذج
     const newProductBtn = document.getElementById('newProductBtn');
-    const viewOffersBtn = document.getElementById('viewOffersBtn');
+    const viewMarketBtn = document.getElementById('viewMarketBtn');
     const viewTendersBtn = document.getElementById('viewTendersBtn');
     const productModal = document.getElementById('productModal');
-    const offerModal = document.getElementById('offerModal');
+    const marketModal = document.getElementById('marketModal');
     const tendersModal = document.getElementById('tendersModal');
     const closeBtns = document.querySelectorAll('.close-btn');
     const logoutBtn = document.getElementById('logoutBtn');
@@ -946,6 +1602,11 @@
     const avatarInput = document.getElementById('avatarInput');
     const uploadBtn = document.getElementById('uploadBtn');
     const tenderOfferBtns = document.querySelectorAll('.tender-offer-btn');
+    const inboxBtn = document.getElementById('inboxBtn');
+    const notificationsBtn = document.getElementById('notificationsBtn');
+    const inboxSection = document.getElementById('inboxSection');
+    const notificationsSection = document.getElementById('notificationsSection');
+    const productsSection = document.getElementById('productsSection');
     
     // تحميل بيانات المستخدم من localStorage
     document.addEventListener('DOMContentLoaded', function() {
@@ -972,6 +1633,12 @@
         userAvatar.style.backgroundImage = `url(${savedAvatar})`;
         userAvatar.classList.remove('no-image');
         userAvatar.innerHTML = '<div class="verified-badge"><i class="fas fa-check"></i></div>';
+        
+        // تعيين الصورة في واجهة السوق
+        document.querySelectorAll('.post-user-avatar[data-initial="ت"]').forEach(avatar => {
+          avatar.style.backgroundImage = `url(${savedAvatar})`;
+          avatar.innerHTML = '';
+        });
       }
     });
     
@@ -980,9 +1647,9 @@
       productModal.style.display = 'block';
     });
     
-    // فتح نافذة العروض المقدمة
-    viewOffersBtn.addEventListener('click', () => {
-      alert('سيتم عرض العروض المقدمة من قبلك للمناقصات الحكومية');
+    // فتح نافذة سوق شارع الصناعة
+    viewMarketBtn.addEventListener('click', () => {
+      marketModal.style.display = 'block';
     });
     
     // فتح نافذة المناقصات الحكومية
@@ -1030,7 +1697,7 @@
     // إرسال نموذج إضافة منتج
     document.getElementById('productForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('تم إضافة المنتج بنجاح!');
+      alert('تم إضافة المنتج بنجاح! وسيظهر كمنشور في سوق شارع الصناعة.');
       this.reset();
       productModal.style.display = 'none';
     });
@@ -1113,6 +1780,12 @@
           userAvatar.innerHTML = '<div class="verified-badge"><i class="fas fa-check"></i></div>';
           avatarUpload.classList.remove('active');
           
+          // تحديث الصورة في واجهة السوق
+          document.querySelectorAll('.post-user-avatar[data-initial="ت"]').forEach(avatar => {
+            avatar.style.backgroundImage = `url(${e.target.result})`;
+            avatar.innerHTML = '';
+          });
+          
           // تخزين الصورة في localStorage
           localStorage.setItem('userAvatar', e.target.result);
           alert('تم تحديث الصورة الشخصية بنجاح!');
@@ -1126,6 +1799,37 @@
       } else {
         alert('الرجاء اختيار صورة أولاً');
       }
+    });
+    
+    // زر تمويل المنشور
+    document.querySelectorAll('.post-action-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (this.querySelector('i').classList.contains('fa-ad')) {
+          alert('سيتم فتح نافذة تمويل المنشور لتحديد الميزانية والفترة الزمنية للإعلان');
+        }
+      });
+    });
+    
+    // التحكم في عرض الأقسام (البريد الوارد، الإشعارات، المنتجات)
+    inboxBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      inboxSection.style.display = 'block';
+      notificationsSection.style.display = 'none';
+      productsSection.style.display = 'none';
+    });
+    
+    notificationsBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      notificationsSection.style.display = 'block';
+      inboxSection.style.display = 'none';
+      productsSection.style.display = 'none';
+    });
+    
+    // عند النقر على أيقونة المتجر أو اسم المتجر، العودة لقائمة المنتجات
+    document.querySelector('.logo-container').addEventListener('click', function() {
+      inboxSection.style.display = 'none';
+      notificationsSection.style.display = 'none';
+      productsSection.style.display = 'block';
     });
   </script>
 </body>
